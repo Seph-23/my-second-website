@@ -25,19 +25,17 @@ public class Board {
   @Column(name = "board_id")
   private Long id;
 
-  @NotNull @Size(min = 1, max = 30, message = "제목은 1 ~ 30 자 이내여야 합니다.")
-  @Column(length = 31)
+  @NotNull @Column(length = 31)
   private String title;
 
-  @NotNull @Size(min = 1, max = 144, message = "내용은 1 ~ 144 자 이내여야 합니다.")
-  @Column(length = 145)
+  @NotNull @Column(length = 145)
   private String content;
 
   @NotNull @Column(length = 11)
   private String author;   //member nickname
 
   @Column(columnDefinition = "integer default 0")
-  private int views;
+  private Integer views;
 
   @CreatedDate @Column(length = 40)
   private String createdDate;
