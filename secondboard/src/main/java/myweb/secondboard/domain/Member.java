@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
+import myweb.secondboard.dto.MemberSaveForm;
 
 @Entity
 @Getter @Setter
@@ -29,4 +30,12 @@ public class Member {
   @NotNull @Column(unique = true, length = 50)
   private String email;
 
+  public static Member createMember(MemberSaveForm form) {
+    Member member = new Member();
+    member.setLoginId(form.getLoginId());
+    member.setPassword(form.getPassword());
+    member.setNickname(form.getNickname());
+    member.setEmail(form.getEmail());
+    return member;
+  }
 }

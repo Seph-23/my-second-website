@@ -2,42 +2,26 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta http-equiv="Content-Type>" content="text/html; charset=UTF-8"/>
-  <link th:href="@{/css/bootstrap.min.css}"
-        href="../css/bootstrap.min.css" rel="stylesheet">
   <link rel="shortcut icon" href="#">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400&display=swap"
+        rel="stylesheet">
   <!-- jQuery -->
   <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
   <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-  <style>
-    h1{
-      color: floralwhite;
-      display: inline;
-    }
-    body{
-      background-color: #000015;
-      color: floralwhite;
-    }
-    .container{
-      max-width: 800px;
-    }
-    #bt1{
-      position: relative;
-      left: 600px;
-    }
-    #bt2{
-      position: relative;
-      left: 630px;
-    }
-  </style>
+  <link href="/css/header-style.css" rel="stylesheet">
   <title>Home</title>
 </head>
 <body>
+  <div class="container">   <!-- Container Start -->
+    <div class="header"><h1><a th:onclick="|location.href='@{/}'|">GoGo Tennis</a></h1>   <!-- Header Start -->
+      <div class="nav">
+        <ul>
+          <li><a th:onclick="|location.href='@{/members/new}'|">회원가입</a></li>
+          <li><a th:onclick="|location.href='@{/members/login}'|">로그인</a></li>
+        </ul>
+      </div>
+    </div> <!-- Header End -->
 
-<div class="container">
-  <h1>Home</h1>
-  <button id="bt1" th:onclick="|location.href='@{/members/new}'|">회원가입</button>
-  <button id="bt2" th:onclick="|location.href='@{/members/login}'|">로그인</button>
-</div>
-
+  </div> <!-- Container End -->
 </body>
 </html>
