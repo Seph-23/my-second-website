@@ -17,8 +17,18 @@
     <div class="header"><h1><a th:onclick="|location.href='@{/}'|">GoGo Tennis</a></h1>   <!-- Header Start -->
       <div class="nav">
         <ul>
-          <li><a th:onclick="|location.href='@{/members/new}'|">회원가입</a></li>
-          <li><a th:onclick="|location.href='@{/login}'|">로그인</a></li>
+          <li th:if="${session.loginMember == null}">
+            <a th:onclick="|location.href='@{/members/new}'|">회원가입</a>
+          </li>
+          <li th:if="${session.loginMember == null}">
+            <a th:onclick="|location.href='@{/login}'|">로그인</a>
+          </li>
+          <li th:if="${session.loginMember != null}">
+            <a th:onclick="|location.href='@{/members/profile}'|">프로필</a>
+          </li>
+          <li th:if="${session.loginMember != null}">
+            <a th:onclick="|location.href='@{/logout}'|">로그아웃</a>
+          </li>
         </ul>
       </div>
     </div> <!-- Header End -->

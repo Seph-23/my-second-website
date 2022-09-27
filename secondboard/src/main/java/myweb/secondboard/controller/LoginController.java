@@ -15,6 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Slf4j
 @Controller
@@ -50,5 +51,15 @@ public class LoginController {
     session.setAttribute(SessionConst.LOGIN_MEMBER, loginMember);
 
     return "redirect:/";
+  }
+
+  @GetMapping("/logout")
+  public String logout(HttpServletRequest request) {
+    HttpSession session = request.getSession(false);
+
+    if (session != null) {
+      session.invalidate();
+    }
+    return "home";
   }
 }
