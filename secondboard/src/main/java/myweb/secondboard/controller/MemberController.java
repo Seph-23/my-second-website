@@ -48,8 +48,7 @@ public class MemberController {
   }
 
   //회원가입 아이디 중복확인
-  @ResponseBody
-  @GetMapping("/checkId")
+  @ResponseBody @GetMapping("/checkId")
   public int checkId(@RequestParam Map<String, Object> param) {
 
     int result = 0;
@@ -61,8 +60,7 @@ public class MemberController {
   }
 
   //회원가입 닉네임 중복확인
-  @ResponseBody
-  @GetMapping("/checkNick")
+  @ResponseBody @GetMapping("/checkNick")
   public int checkNick(@RequestParam Map<String, Object> param) {
 
     int result = 0;
@@ -74,8 +72,7 @@ public class MemberController {
   }
 
   //회원가입 이메일 중복확인
-  @ResponseBody
-  @GetMapping("/checkEmail")
+  @ResponseBody @GetMapping("/checkEmail")
   public int checkEmail(@RequestParam Map<String, Object> param) {
 
     int result = 0;

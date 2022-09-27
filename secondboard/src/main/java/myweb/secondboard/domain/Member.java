@@ -1,5 +1,6 @@
 package myweb.secondboard.domain;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +13,7 @@ import myweb.secondboard.dto.MemberSaveForm;
 
 @Entity
 @Getter @Setter
-public class Member {
+public class Member implements Serializable {
 
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "member_id")
