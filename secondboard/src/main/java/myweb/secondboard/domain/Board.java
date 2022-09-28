@@ -2,6 +2,8 @@ package myweb.secondboard.domain;
 
 import static javax.persistence.FetchType.*;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,6 +16,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
+import myweb.secondboard.dto.BoardSaveForm;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
@@ -46,4 +49,18 @@ public class Board {
   @JoinColumn(name = "member_id")
   private Member member;
 
+  //생성 메서드
+  public static Board createBoard(BoardSaveForm form, Member member) {
+    Board board = new Board();
+    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy:MM:dd:HH:mm:ss");
+
+    board.setTitle(form.getTitle());
+    board.setContent(form.getContent());
+    board.setAuthor(member.getNickname());
+    board.setViews(0);
+    board.setCreatedDate(LocalDateTime.now().format(dtf));
+    board.setModifiedDate(LocalDateTime.now().format(dtf));
+    board.setMember(member);
+    return board;
+  }
 }
