@@ -16,5 +16,4 @@ public class BoardController {
   public String home() {
     return "/boards/boardHome";
   }
-
 }

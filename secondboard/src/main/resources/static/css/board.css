@@ -1,0 +1,50 @@
+.container .board{
+  display: flex;
+  height: 100%;
+}
+
+/* Side Menu Start */
+.container .board .side-menu{
+  font-family: 'Noto Sans KR', sans-serif;
+  text-decoration: none;
+  color: black;
+  width: 20%;
+  height: 100%;
+  align-items: center;
+  display: inline-block;
+  border-right-style: solid;
+  border-right-color: rgba(0,0,0,0.3);
+  border-right-width: 3px;
+}
+
+.container .board .side-menu h3{
+  text-align: center;
+  margin-left: 18%;
+}
+
+.container .board .side-menu ul{
+  text-align: right;
+  list-style: none;
+  margin-right: 18%;
+}
+
+.container .board .side-menu ul li a{
+  text-decoration: none;
+  color: black;
+}
+
+.container .board .side-menu ul li a:hover{
+  color: #1fdfdf;
+  cursor: pointer;
+  transition: all .4s;
+}
+/* Side Menu End */
+
+/* Main Board Start */
+.container .board .board-main{
+  width: 80%;
+  height: 100%;
+  display: inline-block;
+}
+
+/* Main Board End */
