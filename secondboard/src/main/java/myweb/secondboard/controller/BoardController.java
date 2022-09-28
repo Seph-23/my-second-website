@@ -16,4 +16,9 @@ public class BoardController {
   public String home() {
     return "/boards/boardHome";
   }
+
+  @GetMapping("/boardAdd")
+  public String addForm() {
+    return "/boards/boardAdd";
+  }
 }

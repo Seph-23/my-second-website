@@ -47,8 +47,7 @@ public class LoginController {
     }
 
     //세션에 로그인 객체 저장.
-    HttpSession session = request.getSession();
-    session.setAttribute(SessionConst.LOGIN_MEMBER, loginMember);
+    request.getSession().setAttribute(SessionConst.LOGIN_MEMBER, loginMember);
 
     return "redirect:/";
   }
