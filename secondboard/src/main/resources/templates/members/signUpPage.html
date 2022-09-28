@@ -15,20 +15,50 @@
 </head>
 <body>
   <div class="container">   <!-- Container Start -->
-    <div class="header"><h1><a th:onclick="|location.href='@{/}'|">GoGo Tennis</a></h1>   <!-- Header Start -->
-      <div class="nav">
+    <div class="header">  <!-- Header Start -->
+      <div class="top-menu"> <!-- Top Menu Start -->
+        <h1><a th:onclick="|location.href='@{/}'|">GoGo Tennis</a></h1>   <!-- Header Start -->
+        <div class="nav">
+          <ul>
+            <li th:if="${session.loginMember == null}">
+              <a th:onclick="|location.href='@{/members/new}'|">회원가입</a>
+            </li>
+            <li th:if="${session.loginMember == null}">
+              <a th:onclick="|location.href='@{/login}'|">로그인</a>
+            </li>
+            <li th:if="${session.loginMember != null}">
+              <a th:onclick="|location.href='@{/members/profile}'|">프로필</a>
+            </li>
+            <li th:if="${session.loginMember != null}">
+              <a th:onclick="|location.href='@{/logout}'|">로그아웃</a>
+            </li>
+          </ul>
+        </div>
+      </div> <!-- Top Menu End -->
+      <div class="main-menu"> <!-- Main Menu Start -->
         <ul>
-          <li><a th:onclick="|location.href='@{/login}'|">로그인</a></li>
+          <li>
+            <a th:onclick="|location.href='@{/match/home}'|">매치</a>
+          </li>
+          <li>
+            <a th:onclick="|location.href='@{/rank/home}'|">랭킹</a>
+          </li>
+          <li>
+            <a th:onclick="|location.href='@{/tournament/home}'|">대회</a>
+          </li>
+          <li>
+            <a th:onclick="|location.href='@{/boards/home}'|">커뮤니티</a>
+          </li>
         </ul>
-      </div>
-    </div> <!-- Header End -->
+      </div> <!-- Main Menu End -->
+    </div><!-- Header End -->
 
     <div class="signup">  <!-- signup body start -->
       <h3>회원 가입 페이지</h3>
       <form role="form" th:object="${member}" action="/members/new" method="post"> <!-- signup form -->
         <div class="form-group">
           <label th:for="loginId">아이디: </label>
-          <input id="login_id" type="text" class="form-control" th:field="${member.loginId}"
+          <input id="login-id" type="text" class="form-control" th:field="${member.loginId}"
                  placeholder="아이디를 입력해주세요."/>
           <button type="button" id="id-dup-button" class="dup-check-button">중복확인</button>
           <div class="field-error" th:errors="${member.loginId}"></div>
@@ -63,7 +93,7 @@
   $("#id-dup-button").click(function () {
     $("#signup-submit").attr("type", "button");
     let id = {
-      loginId: $("#login_id").val()
+      loginId: $("#login-id").val()
     }
     $.ajax({
       type: "get",

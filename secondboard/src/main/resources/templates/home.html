@@ -14,24 +14,43 @@
 </head>
 <body>
   <div class="container">   <!-- Container Start -->
-    <div class="header"><h1><a th:onclick="|location.href='@{/}'|">GoGo Tennis</a></h1>   <!-- Header Start -->
-      <div class="nav">
+    <div class="header">  <!-- Header Start -->
+      <div class="top-menu"> <!-- Top Menu Start -->
+        <h1><a th:onclick="|location.href='@{/}'|">GoGo Tennis</a></h1>   <!-- Header Start -->
+        <div class="nav">
+          <ul>
+            <li th:if="${session.loginMember == null}">
+              <a th:onclick="|location.href='@{/members/new}'|">회원가입</a>
+            </li>
+            <li th:if="${session.loginMember == null}">
+              <a th:onclick="|location.href='@{/login}'|">로그인</a>
+            </li>
+            <li th:if="${session.loginMember != null}">
+              <a th:onclick="|location.href='@{/members/profile}'|">프로필</a>
+            </li>
+            <li th:if="${session.loginMember != null}">
+              <a th:onclick="|location.href='@{/logout}'|">로그아웃</a>
+            </li>
+          </ul>
+        </div>
+      </div> <!-- Top Menu End -->
+      <div class="main-menu"> <!-- Main Menu Start -->
         <ul>
-          <li th:if="${session.loginMember == null}">
-            <a th:onclick="|location.href='@{/members/new}'|">회원가입</a>
+          <li>
+            <a th:onclick="|location.href='@{/match/home}'|">매치</a>
           </li>
-          <li th:if="${session.loginMember == null}">
-            <a th:onclick="|location.href='@{/login}'|">로그인</a>
+          <li>
+            <a th:onclick="|location.href='@{/rank/home}'|">랭킹</a>
           </li>
-          <li th:if="${session.loginMember != null}">
-            <a th:onclick="|location.href='@{/members/profile}'|">프로필</a>
+          <li>
+            <a th:onclick="|location.href='@{/tournament/home}'|">대회</a>
           </li>
-          <li th:if="${session.loginMember != null}">
-            <a th:onclick="|location.href='@{/logout}'|">로그아웃</a>
+          <li>
+            <a th:onclick="|location.href='@{/boards/home}'|">커뮤니티</a>
           </li>
         </ul>
-      </div>
-    </div> <!-- Header End -->
+      </div> <!-- Main Menu End -->
+    </div><!-- Header End -->
 
   </div> <!-- Container End -->
 </body>
