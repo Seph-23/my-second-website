@@ -9,8 +9,8 @@
   <script src="https://code.jquery.com/jquery-3.6.1.js"
           integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
           crossorigin="anonymous"></script>
-  <link href="/css/header-style.css" rel="stylesheet">
   <link href="/css/signup-body.css" rel="stylesheet">
+  <link href="/css/header-style.css" rel="stylesheet">
   <title>회원가입</title>
 </head>
 <body>
@@ -52,7 +52,6 @@
         </ul>
       </div> <!-- Main Menu End -->
     </div><!-- Header End -->
-
     <div class="signup">  <!-- signup body start -->
       <h3>회원 가입 페이지</h3>
       <form role="form" th:object="${member}" action="/members/new" method="post"> <!-- signup form -->
