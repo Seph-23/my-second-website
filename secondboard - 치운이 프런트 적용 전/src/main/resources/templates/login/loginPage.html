@@ -9,17 +9,33 @@
   <script src="https://code.jquery.com/jquery-3.6.1.js"
           integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
           crossorigin="anonymous"></script>
+  <link href="/css/login-body.css" rel="stylesheet">
   <link href="/css/header-style.css" rel="stylesheet">
   <title>로그인</title>
 </head>
 <body>
   <div class="container"> <!-- container start -->
     <div class="header">  <!-- Header Start -->
-      <h1>
-        <img th:src="@{/images/gogoTennisLogo.png}" alt="logo" width="160"
-             th:onclick="|location.href='@{/}'|">
-      </h1>   <!-- Header Start -->
-      <div class="nav"> <!-- Main Menu Start -->
+      <div class="top-menu"> <!-- Top Menu Start -->
+        <h1><a th:onclick="|location.href='@{/}'|">GoGo Tennis</a></h1>   <!-- Header Start -->
+        <div class="nav">
+          <ul>
+            <li th:if="${session.loginMember == null}">
+              <a th:onclick="|location.href='@{/members/new}'|">회원가입</a>
+            </li>
+            <li th:if="${session.loginMember == null}">
+              <a th:onclick="|location.href='@{/login}'|">로그인</a>
+            </li>
+            <li th:if="${session.loginMember != null}">
+              <a th:onclick="|location.href='@{/members/profile}'|">프로필</a>
+            </li>
+            <li th:if="${session.loginMember != null}">
+              <a th:onclick="|location.href='@{/logout}'|">로그아웃</a>
+            </li>
+          </ul>
+        </div>
+      </div> <!-- Top Menu End -->
+      <div class="main-menu"> <!-- Main Menu Start -->
         <ul>
           <li>
             <a th:onclick="|location.href='@{/match/home}'|">매치</a>
@@ -35,22 +51,6 @@
           </li>
         </ul>
       </div> <!-- Main Menu End -->
-      <div class="login"> <!-- login start -->
-        <ul>
-          <li th:if="${session.loginMember == null}">
-            <a th:onclick="|location.href='@{/members/new}'|">회원가입</a>
-          </li>
-          <li th:if="${session.loginMember == null}">
-            <a th:onclick="|location.href='@{/login}'|">로그인</a>
-          </li>
-          <li th:if="${session.loginMember != null}">
-            <a th:onclick="|location.href='@{/members/profile}'|">프로필</a>
-          </li>
-          <li th:if="${session.loginMember != null}">
-            <a th:onclick="|location.href='@{/logout}'|">로그아웃</a>
-          </li>
-        </ul>
-      </div> <!-- login end -->
     </div><!-- Header End -->
     <div class="login"> <!-- Login Body Start -->
       <h3>로그인 페이지</h3>
@@ -76,7 +76,7 @@
       </form>
 
     </div> <!-- Login Body End -->
-  </div> <!-- container end -->
+  </div> <!-- container start -->
 
 </body>
 </html>
