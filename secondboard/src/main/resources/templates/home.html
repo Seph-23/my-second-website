@@ -10,7 +10,7 @@
           integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
           crossorigin="anonymous"></script>
   <link href="/css/header-style.css" rel="stylesheet">
-  <link href="/css/slideStyle.css" rel="stylesheet">
+  <link href="/css/slide-style.css" rel="stylesheet">
   <title>Home</title>
 </head>
 <body>
@@ -19,7 +19,7 @@
       <h1>
         <img th:src="@{/images/gogoTennisLogo.png}" alt="logo" width="160"
              th:onclick="|location.href='@{/}'|">
-      </h1>   <!-- Header Start -->
+      </h1>
       <div class="nav"> <!-- Main Menu Start -->
         <ul>
           <li>
@@ -36,7 +36,7 @@
           </li>
         </ul>
       </div> <!-- Main Menu End -->
-      <div class="login"> <!-- login start -->
+      <div class="login-menu"> <!-- login start -->
         <ul>
           <li th:if="${session.loginMember == null}">
             <a th:onclick="|location.href='@{/members/new}'|">회원가입</a>
@@ -69,5 +69,5 @@
     </p>
   </div>
 </body>
-<script type="text/javascript" th:src="@{/js/slideShow.js}"></script>
+<script type="text/javascript" th:src="@{/js/slide-style.js}"></script>
 </html>

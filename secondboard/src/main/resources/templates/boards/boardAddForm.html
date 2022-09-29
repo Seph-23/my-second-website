@@ -18,7 +18,7 @@
       <h1>
         <img th:src="@{/images/gogoTennisLogo.png}" alt="logo" width="160"
              th:onclick="|location.href='@{/}'|">
-      </h1>   <!-- Header Start -->
+      </h1>
       <div class="nav"> <!-- Main Menu Start -->
         <ul>
           <li>
@@ -35,7 +35,7 @@
           </li>
         </ul>
       </div> <!-- Main Menu End -->
-      <div class="login"> <!-- login start -->
+      <div class="login-menu"> <!-- login start -->
         <ul>
           <li th:if="${session.loginMember == null}">
             <a th:onclick="|location.href='@{/members/new}'|">회원가입</a>
