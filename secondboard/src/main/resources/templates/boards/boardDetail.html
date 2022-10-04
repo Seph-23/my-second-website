@@ -71,9 +71,18 @@
           <table>
             <thead>
             <tr>
-              <th th:text="${board.author}"></th>
-              <th th:text="${board.createdDate}"></th>
-              <th th:text="${board.views}"></th>
+              <th>
+                <img th:src="@{/images/user.png}" alt="logo" height="15" width="20">
+                <a th:text="${board.author}"></a>
+              </th>
+              <th>
+                <img th:src="@{/images/clock.png}" alt="logo" height="15" width="20">
+                <a th:text="${board.createdDate}"></a>
+              </th>
+              <th>
+                <img th:src="@{/images/views.png}" alt="logo" height="10" width="20">
+                <a th:text="${board.views}"></a>
+              </th>
             </tr>
             </thead>
           </table>
