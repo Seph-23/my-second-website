@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import myweb.secondboard.dto.BoardSaveForm;
 import org.springframework.data.annotation.CreatedDate;
@@ -20,27 +21,34 @@ import org.springframework.data.annotation.LastModifiedDate;
 
 @Entity
 @Getter @Setter
+@NoArgsConstructor
 public class Board {
 
-  @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "board_id")
   private Long id;
 
-  @NotNull @Column(length = 31)
+  @NotNull
+  @Column(length = 31)
   private String title;
 
-  @NotNull @Column(length = 145)
+  @NotNull
+  @Column(length = 145)
   private String content;
 
-  @NotNull @Column(length = 11)
+  @NotNull
+  @Column(length = 11)
   private String author;   //member nickname
 
   @Column(columnDefinition = "integer default 0")
   private Integer views;
 
-  @CreatedDate @Column(length = 40)
+  @CreatedDate
+  @Column(length = 40)
   private String createdDate;
-  @LastModifiedDate @Column(length = 40)
+  @LastModifiedDate
+  @Column(length = 40)
   private String modifiedDate;
 
   @ManyToOne(fetch = LAZY)

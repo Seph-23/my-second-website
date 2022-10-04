@@ -5,6 +5,10 @@ import myweb.secondboard.domain.Board;
 import myweb.secondboard.domain.Member;
 import myweb.secondboard.dto.BoardSaveForm;
 import myweb.secondboard.repository.BoardRepository;
+import myweb.secondboard.repository.BoardRepositoryInterface;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class BoardService {
 
   private final BoardRepository boardRepository;
+  private final BoardRepositoryInterface boardRepositoryInterface;
 
   //게시글 등록
   @Transactional
@@ -21,5 +26,10 @@ public class BoardService {
     Board board = Board.createBoard(form, member);
     boardRepository.save(board);
     return board.getId();
+  }
+
+  @Transactional
+  public Page<Board> getBoardList(Pageable pageable) {
+    return boardRepositoryInterface.findAll(pageable);
   }
 }

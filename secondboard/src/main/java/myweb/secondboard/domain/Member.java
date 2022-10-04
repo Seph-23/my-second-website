@@ -8,11 +8,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import myweb.secondboard.dto.MemberSaveForm;
 
 @Entity
 @Getter @Setter
+@NoArgsConstructor
 public class Member implements Serializable {
 
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
