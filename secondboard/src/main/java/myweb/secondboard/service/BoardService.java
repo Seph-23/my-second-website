@@ -32,4 +32,13 @@ public class BoardService {
   public Page<Board> getBoardList(Pageable pageable) {
     return boardRepositoryInterface.findAll(pageable);
   }
+
+  public Board findOne(Long boardId) {
+    return boardRepository.findOne(boardId);
+  }
+
+  @Transactional
+  public void increaseView(Long boardId) {
+    boardRepository.updateView(boardId);
+  }
 }

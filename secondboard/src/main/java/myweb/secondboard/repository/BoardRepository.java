@@ -1,6 +1,5 @@
 package myweb.secondboard.repository;
 
-import java.util.List;
 import javax.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import myweb.secondboard.domain.Board;
@@ -16,4 +15,12 @@ public class BoardRepository {
     em.persist(board);
   }
 
+  public Board findOne(Long boardId) {
+    return em.find(Board.class, boardId);
+  }
+
+  public void updateView(Long boardId) {
+    Board board = findOne(boardId);
+    board.updateView(board);
+  }
 }

@@ -10,10 +10,10 @@
           integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
           crossorigin="anonymous"></script>
   <link href="/css/header-style.css" rel="stylesheet">
-  <title>Board Home</title>
+  <title>Board Detail</title>
 </head>
 <body>
-  <div class="container">   <!-- Container Start -->
+  <div class="container"> <!-- Container Start -->
     <div class="header">  <!-- Header Start -->
       <h1>
         <img th:src="@{/images/gogoTennisLogo.png}" alt="logo" width="160"
@@ -64,43 +64,25 @@
         </ul>
       </div> <!-- Left Side Menu End -->
 
-      <div class="board-main"> <!-- Board Main Start -->
-        <h3>자유 게시판</h3>
-        <table>
-          <thead>
-          <tr>
-            <th>글번호</th>
-            <th>제목</th>
-            <th>작성자</th>
-            <th>작성일</th>
-            <th>조회수</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr th:each = "board:${boardList}">
-            <td th:text="${board.id}">1</td>
-            <td >
-              <a th:text="${board.title}" th:href="@{/boards/detail/{id} (id=${board.id})}"></a>
-            </td>
-            <td th:text="${board.author}"></td>
-            <td th:text="${board.createdDate}"></td>
-            <td th:text="${board.views}"></td>
-          </tr>
-          </tbody>
-        </table>
+      <div class="board-detail"> <!-- Board Detail Start -->
+        <h6>자유게시판</h6>
+        <div class="board-header"> <!-- 게시글 헤더 -->
+          <h3 th:text="${board.title}"></h3>
+          <table>
+            <thead>
+            <tr>
+              <th th:text="${board.author}"></th>
+              <th th:text="${board.createdDate}"></th>
+              <th th:text="${board.views}"></th>
+            </tr>
+            </thead>
+          </table>
+        </div> <!-- 게시글 헤더 끝 -->
+        <div class="board-content"> <!-- 게시글 본문 -->
+          <p th:text="${board.content}"></p>
+        </div> <!-- 게시글 본문 끝 -->
+      </div> <!-- Board Detail End -->
 
-        <th:block th:each="page:${#numbers.sequence(startPage,endPage)}">
-          <a th:if="${page != nowPage}" th:href="@{/boards/home(page=${page-1})}"
-             th:text ="${page}"></a>
-          <strong th:if="${page==nowPage}" th:text ="${page}" style="color:red"></strong>
-        </th:block>
-        <button type="button" th:onclick="|location.href='@{/boards/boardAdd}'|"
-                th:if="${session.loginMember != null}">게시글 등록</button>
-      </div> <!-- Board Main End -->
-
-      <div class="side-menu-right"> <!-- Right Side Menu Start -->
-
-      </div> <!-- Right Side Menu End -->
     </div> <!-- board end -->
   </div> <!-- Container End -->
 </body>

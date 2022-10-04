@@ -69,4 +69,9 @@ public class Board {
     board.setMember(member);
     return board;
   }
+
+  //조회수 증가
+  public void updateView(Board board) {
+    board.setViews(board.getViews() + 1);
+  }
 }
